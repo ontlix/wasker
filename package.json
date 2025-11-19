@@ -6,6 +6,11 @@
 	"scripts": {
 		"build": "tsc -p tsconfig.json"
 	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
 	"dependencies": {
 		"dotenv": "^17.2.3",
 		"drizzle-orm": "^0.40.1",
