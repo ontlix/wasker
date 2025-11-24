@@ -4,9 +4,9 @@ import z, { ZodError } from 'zod';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-if (!process.env.OTMAX_URL) throw new Error('OTMAX_URL is not set');
+if (!process.env.OTMAN_URL) throw new Error('OTMAN_URL is not set');
 
-const client = postgres(process.env.OTMAX_URL);
+const client = postgres(process.env.OTMAN_URL);
 export const db = drizzle(client, {
 	casing: 'snake_case'
 });
@@ -26,12 +26,12 @@ export const web = {
 
 		const respond: Context['respond'] = {
 			...res,
-			error(on: { message: string; data?: any; code?: number }): XResponse {
+			error(on?: { message?: string; data?: any; code?: number }): XResponse {
 				return {
 					success: false,
-					message: on.message,
-					code: on.code || 500,
-					data: on.data || null
+					message: on?.message || 'error',
+					code: on?.code || 500,
+					data: on?.data || null
 				};
 			},
 			valid(on?: { message?: string; data?: any; code?: number }): XResponse {

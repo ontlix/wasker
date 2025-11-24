@@ -11,9 +11,11 @@ export type XResponse<T = unknown> = {
 };
 
 type Account = {
-	agent: {
-		kind: 'soletor' | 'operator' | 'member';
-		oac: string;
+	scope: {
+		agent: {
+			kind: 'soletor' | 'operator' | 'member';
+			oac: string;
+		};
 		anode: {
 			kind: 'individual' | 'organization' | 'community';
 			oac: string;
@@ -50,7 +52,7 @@ export type Access = 'anonymous' | 'authorize' | 'authenticate';
 // ✅ Extend FastifyReply with helpers for unified response
 export type Respond = FastifyReply & {
 	valid(on?: { message?: string; data?: any; code?: number }): XResponse;
-	error(on: { message: string; data?: any; code?: number }): XResponse;
+	error(on?: { message?: string; data?: any; code?: number }): XResponse;
 };
 
 // ✅ Context (per-request execution bundle)

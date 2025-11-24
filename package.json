@@ -1,5 +1,5 @@
 {
-	"name": "@nomas/wasker",
+	"name": "@ontlix/wasker",
 	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
