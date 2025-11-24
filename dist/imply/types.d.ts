@@ -8,9 +8,11 @@ export type XResponse<T = unknown> = {
     data: T;
 };
 type Account = {
-    agent: {
-        kind: 'soletor' | 'operator' | 'member';
-        oac: string;
+    scope: {
+        agent: {
+            kind: 'soletor' | 'operator' | 'member';
+            oac: string;
+        };
         anode: {
             kind: 'individual' | 'organization' | 'community';
             oac: string;
@@ -44,8 +46,8 @@ export type Respond = FastifyReply & {
         data?: any;
         code?: number;
     }): XResponse;
-    error(on: {
-        message: string;
+    error(on?: {
+        message?: string;
         data?: any;
         code?: number;
     }): XResponse;
