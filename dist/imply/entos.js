@@ -11,12 +11,12 @@ export const web = {
     set(req, res) {
         const header = {
             account: req.headers['x-account'],
-            norsect: req.headers['x-norsect']
+            service: req.headers['x-service']
         };
         const service = {
             db,
             auth: JSON.parse(Buffer.from(header.account, 'base64').toString('utf-8')),
-            sect: JSON.parse(Buffer.from(header.norsect, 'base64').toString('utf-8'))
+            sect: JSON.parse(Buffer.from(header.service, 'base64').toString('utf-8'))
         };
         const respond = {
             ...res,

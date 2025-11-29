@@ -15,13 +15,13 @@ export const web = {
 	set(req: FastifyRequest, res: FastifyReply): Context {
 		const header = {
 			account: req.headers['x-account'] as string,
-			norsect: req.headers['x-norsect'] as string
+			service: req.headers['x-service'] as string
 		};
 
 		const service: Context['service'] = {
 			db,
 			auth: JSON.parse(Buffer.from(header.account, 'base64').toString('utf-8')),
-			sect: JSON.parse(Buffer.from(header.norsect, 'base64').toString('utf-8'))
+			sect: JSON.parse(Buffer.from(header.service, 'base64').toString('utf-8'))
 		};
 
 		const respond: Context['respond'] = {
