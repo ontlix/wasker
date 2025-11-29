@@ -31,7 +31,7 @@ type Account = {
 	};
 };
 
-type Norsect = {
+type Sermant = {
 	head: {
 		name: string;
 		env: 'sand' | 'demo' | 'main';
@@ -43,7 +43,7 @@ type Norsect = {
 export type Service = {
 	db: PostgresJsDatabase;
 	auth: Account;
-	sect: Norsect;
+	sect: Sermant;
 };
 
 // ✅ Explicit access modes

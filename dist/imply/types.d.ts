@@ -27,7 +27,7 @@ type Account = {
         email: string;
     };
 };
-type Norsect = {
+type Sermant = {
     head: {
         name: string;
         env: 'sand' | 'demo' | 'main';
@@ -37,7 +37,7 @@ type Norsect = {
 export type Service = {
     db: PostgresJsDatabase;
     auth: Account;
-    sect: Norsect;
+    sect: Sermant;
 };
 export type Access = 'anonymous' | 'authorize' | 'authenticate';
 export type Respond = FastifyReply & {
