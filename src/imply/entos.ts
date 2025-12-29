@@ -4,9 +4,9 @@ import z, { ZodError } from 'zod';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-if (!process.env.OTMAN_URL) throw new Error('OTMAN_URL is not set');
+if (!process.env.ODKAV_URL) throw new Error('ODKAV_URL is not set');
 
-const client = postgres(process.env.OTMAN_URL);
+const client = postgres(process.env.ODKAV_URL);
 export const db = drizzle(client, {
 	casing: 'snake_case'
 });
