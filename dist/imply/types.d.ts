@@ -7,7 +7,7 @@ export type XResponse<T = unknown> = {
     code: number;
     data: T;
 };
-type Account = {
+type Ventax = {
     scope: {
         agent: {
             kind: 'soletor' | 'operator' | 'member';
@@ -27,7 +27,7 @@ type Account = {
         email: string;
     };
 };
-type Sermant = {
+type Montax = {
     head: {
         name: string;
         env: 'sand' | 'demo' | 'main';
@@ -36,8 +36,8 @@ type Sermant = {
 };
 export type Service = {
     db: PostgresJsDatabase;
-    auth: Account;
-    sect: Sermant;
+    usr: Ventax;
+    sys: Montax;
 };
 export type Access = 'anonymous' | 'authorize' | 'authenticate';
 export type Respond = FastifyReply & {

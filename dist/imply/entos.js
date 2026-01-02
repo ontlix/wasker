@@ -1,22 +1,22 @@
 import { ZodError } from 'zod';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
-if (!process.env.OTMAN_URL)
-    throw new Error('OTMAN_URL is not set');
-const client = postgres(process.env.OTMAN_URL);
+if (!process.env.ONDES_URL)
+    throw new Error('ONDES_URL is not set');
+const client = postgres(process.env.ONDES_URL);
 export const db = drizzle(client, {
     casing: 'snake_case'
 });
 export const web = {
     set(req, res) {
         const header = {
-            account: req.headers['x-account'],
-            sermant: req.headers['x-sermant']
+            ventax: req.headers['x-ventax'],
+            montax: req.headers['x-montax']
         };
         const service = {
             db,
-            auth: JSON.parse(Buffer.from(header.account, 'base64').toString('utf-8')),
-            sect: JSON.parse(Buffer.from(header.sermant, 'base64').toString('utf-8'))
+            usr: JSON.parse(Buffer.from(header.ventax, 'base64').toString('utf-8')),
+            sys: JSON.parse(Buffer.from(header.montax, 'base64').toString('utf-8'))
         };
         const respond = {
             ...res,
