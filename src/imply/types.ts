@@ -70,9 +70,9 @@ export type Action = (
 ) => Promise<XResponse>;
 
 export type Schema = {
-	body?: ZodType;
-	query?: ZodType;
-	param?: ZodType;
+ 	param?: ZodType<any, any, any>;
+  	query?: ZodType<any, any, any>;
+ 	body?: ZodType<any, any, any>;
 };
 
 // ✅ Route config

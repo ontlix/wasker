@@ -59,9 +59,9 @@ export type Context = {
 };
 export type Action = (request: Context['request'], service: Context['service'], respond: Context['respond']) => Promise<XResponse>;
 export type Schema = {
-    body?: ZodType;
-    query?: ZodType;
-    param?: ZodType;
+    param?: ZodType<any, any, any>;
+    query?: ZodType<any, any, any>;
+    body?: ZodType<any, any, any>;
 };
 export type Route = {
     method: 'DELETE' | 'GET' | 'HEAD' | 'PATCH' | 'POST' | 'PUT' | 'OPTIONS' | 'TRACE';
