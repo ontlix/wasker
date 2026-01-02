@@ -10,7 +10,7 @@ export type XResponse<T = unknown> = {
 	data: T;
 };
 
-type Account = {
+type Ventax = {
 	scope: {
 		agent: {
 			kind: 'soletor' | 'operator' | 'member';
@@ -31,7 +31,7 @@ type Account = {
 	};
 };
 
-type Sermant = {
+type Montax = {
 	head: {
 		name: string;
 		env: 'sand' | 'demo' | 'main';
@@ -42,8 +42,8 @@ type Sermant = {
 // ✅ Core service dependencies — injected per request
 export type Service = {
 	db: PostgresJsDatabase;
-	auth: Account;
-	sect: Sermant;
+	usr: Ventax;
+	sys: Montax;
 };
 
 // ✅ Explicit access modes

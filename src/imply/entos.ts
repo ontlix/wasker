@@ -4,9 +4,9 @@ import z, { ZodError } from 'zod';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-if (!process.env.ODKAV_URL) throw new Error('ODKAV_URL is not set');
+if (!process.env.ONDES_URL) throw new Error('ONDES_URL is not set');
 
-const client = postgres(process.env.ODKAV_URL);
+const client = postgres(process.env.ONDES_URL);
 export const db = drizzle(client, {
 	casing: 'snake_case'
 });
@@ -14,14 +14,14 @@ export const db = drizzle(client, {
 export const web = {
 	set(req: FastifyRequest, res: FastifyReply): Context {
 		const header = {
-			account: req.headers['x-account'] as string,
-			sermant: req.headers['x-sermant'] as string
+			ventax: req.headers['x-ventax'] as string,
+			montax: req.headers['x-montax'] as string
 		};
 
 		const service: Context['service'] = {
 			db,
-			auth: JSON.parse(Buffer.from(header.account, 'base64').toString('utf-8')),
-			sect: JSON.parse(Buffer.from(header.sermant, 'base64').toString('utf-8'))
+			usr: JSON.parse(Buffer.from(header.ventax, 'base64').toString('utf-8')),
+			sys: JSON.parse(Buffer.from(header.montax, 'base64').toString('utf-8'))
 		};
 
 		const respond: Context['respond'] = {
