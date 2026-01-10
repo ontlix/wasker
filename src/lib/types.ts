@@ -22,12 +22,14 @@ type Ventax = {
 		};
 	};
 	domain: {
+		oac: string;
 		verified: boolean;
 		uniname: string;
 		disname: string;
 		avatar: string | null;
 		banner: string | null;
 		email: string;
+		exton: string
 	};
 };
 

@@ -1,2 +1,2 @@
-export * from './imply/types.js';
-export * from './imply/entos.js';
+export * from './lib/types.js';
+export * from './lib/entos.js';
